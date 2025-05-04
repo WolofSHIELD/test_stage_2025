@@ -1,5 +1,5 @@
 **Objectif du Challenge**
-Ce problème a pour but d'implémenter, en Rust ou en langage C, les principaux composants du cryptosystème TFHE (Fast Fully Homomorphic Encryption over the Torus), dans le cadre d'une démonstration simple de chiffrement homomorphe. Plus précisément, il s'agit de :
+: ce problème a pour but d'implémenter, en Rust ou en langage C, les principaux composants du cryptosystème TFHE (Fast Fully Homomorphic Encryption over the Torus), dans le cadre d'une démonstration simple de chiffrement homomorphe. Plus précisément, il s'agit de :
 
 Chiffrer un message de 3 bits (valeur entière entre 0 et 7),
 
@@ -12,24 +12,20 @@ Documenter le processus de manière reproductible et modulaire.
 **Organisation du Challenge**
 Une structure de projet claire est essentielle pour faciliter le développement, la lisibilité du code, et les tests. Le projet sera organisé dans un dossier nommé RUST_tfhe/ ou C_tfhe/ selon le langage choisi.
 
-**Arborescence proposée:**
+Résumé des fichiers à nommer proprement
 
-RUST_tfhe/
-│
-├── src/
-│   ├── main.rs             # Point d’entrée du programme
-│   ├── encryption.rs       # Fonction de chiffrement TFHE
-│   ├── decryption.rs       # Fonction de déchiffrement TFHE
-│   ├── evaluation.rs       # Opérations homomorphes (addition, multiplication, fonctions affines)
-│
-├── tests/                  # Tests unitaires et vérification des résultats
-│
-├── Cargo.toml              # Fichier de configuration Rust (si Rust)
-└── README.md               # Documentation du projet
+Dossier / Fichier	Rôle
 
-Si le Challenge est en C, on utilisera des fichiers .c et .h avec un Makefile à la place de Cargo.toml dans Rust.
+a. src/main.rs ou main.c	Lancement du programme
+b. src/encryption.rs / .c	Chiffrement du message
+c. src/decryption.rs / .c	Déchiffrement du message
+d. src/evaluation.rs / .c	Application des fonctions homomorphes
+f. tests/test_vectors.txt	Exemples d’entrée/sortie attendus
+e. doc/rapport.pdf ou .md	Détail du fonctionnement, schémas si besoin
 
-**=============================================================Début Du Challenge==============================================================**
+CANDIDAT_Nom_Prenom.txt	Fiche d’identité technique à envoyer par mail : **wolofshield@gmail.com**
+
+**Début Du Challeng**
 
 **Fonctionnalités à implémenter, Encodage du message :**
 
@@ -59,7 +55,7 @@ Optionnel : affichage du message original pour vérification.
 9. Expliquer rapdiement le bootstrapping et dire son lien avec notre fonction d'évaluation : f(x)=3x+2
 
 
-**====================================================================Fin Du Challenge====================================================================**
+**Fin Du Challenge**
 
 
 **Contraintes et remarques**
