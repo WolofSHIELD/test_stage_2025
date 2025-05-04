@@ -12,7 +12,7 @@ Documenter le processus de manière reproductible et modulaire.
 
 **Organisation du Challenge**
 
-Une structure de projet claire est essentielle pour faciliter le développement, la lisibilité du code, et les tests. Le projet sera organisé dans un dossier nommé RUST_tfhe/ ou C_tfhe/ selon le langage choisi.
+Une structure ce challenge claire est essentielle pour faciliter le développement, la lisibilité du code, et les tests. Le challenge sera organisé dans un dossier nommé RUST_tfhe/ ou C_tfhe/ selon le langage choisi.
 
 Résumé des fichiers à nommer proprement
 
