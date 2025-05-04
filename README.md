@@ -67,6 +67,6 @@ Optionnel : affichage du message original pour vérification.
 
 **Contraintes et remarques**
 
-On pour travailler sur ℤ/16ℤ dans tout le challenge. La fonction 𝑓(𝑥)=3𝑥+2 est considérée comme fonction de référence pour la vérification du bon fonctionnement du chiffrement et de l’évaluation. Les fonctions homomorphes doivent être implémentées en respectant les limitations de TFHE (opérations logiques / arithmétiques bit-à-bit). La sécurité cryptographique n’est pas l’objectif principal ici : l’accent est mis sur la compréhension et la démonstration du fonctionnement de TFHE. 
+On pourra travailler sur ℤ/16ℤ dans tout le challenge. La fonction 𝑓(𝑥)=3𝑥+2 est considérée comme fonction de référence pour la vérification du bon fonctionnement du chiffrement et de l’évaluation. Les fonctions homomorphes doivent être implémentées en respectant les limitations de TFHE (opérations logiques / arithmétiques bit-à-bit). La sécurité cryptographique n’est pas l’objectif principal ici : l’accent est mis sur la compréhension et la démonstration du fonctionnement de TFHE. 
 L’ensemble du **Challenge** doit être suffisamment documenté pour permettre à un tiers (correcteur, lecteur) de reproduire et comprendre les étapes de bout en bout.
 
