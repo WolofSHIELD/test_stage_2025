@@ -19,10 +19,15 @@ Résumé des fichiers à nommer proprement
 Dossier / Fichier	Rôle
 
 a. src/main.rs ou main.c	Lancement du programme
+
 b. src/encryption.rs / .c	Chiffrement du message
+
 c. src/decryption.rs / .c	Déchiffrement du message
+
 d. src/evaluation.rs / .c	Application des fonctions homomorphes
+
 f. tests/test_vectors.txt	Exemples d’entrée/sortie attendus
+
 e. doc/rapport.pdf ou .md	Détail du fonctionnement, schémas si besoin
 
 CANDIDAT_Nom_Prenom.txt	Fiche d’identité technique à envoyer par mail : **wolofshield@gmail.com**
