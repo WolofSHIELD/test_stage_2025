@@ -32,7 +32,7 @@ doc/rapport.pdf ou .md	Détail du fonctionnement, schémas si besoin
 
 CANDIDAT_Nom_Prenom.txt	Fiche d’identité technique à envoyer par mail : **wolofshield@gmail.com**
 
-**Début Du Challeng**
+**Début Du Challenge**
 
 **Fonctionnalités à implémenter, Encodage du message :**
 
