@@ -18,13 +18,13 @@ Résumé des fichiers à nommer proprement
 
 Dossier / Fichier	Rôle
 
-main.rs ou main.c	Lancement du programme
+main.rs ou main.c : lancement du programme
 
-encryption.rs / .c	Chiffrement du message
+encryption.rs / .c : chiffrement du message
 
-decryption.rs / .c	Déchiffrement du message
+decryption.rs / .c	: déchiffrement du message
 
-evaluation.rs / .c	Application des fonctions homomorphes
+evaluation.rs / .c	: application des fonctions homomorphes
 
 tests/test_vectors.txt	Exemples d’entrée/sortie attendus
 
