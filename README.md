@@ -1,5 +1,6 @@
 **Objectif du Challenge**
-: ce problème a pour but d'implémenter, en Rust ou en langage C, les principaux composants du cryptosystème TFHE (Fast Fully Homomorphic Encryption over the Torus), dans le cadre d'une démonstration simple de chiffrement homomorphe. Plus précisément, il s'agit de :
+ 
+Ce problème a pour but d'implémenter, en Rust ou en langage C, les principaux composants du cryptosystème TFHE (Fast Fully Homomorphic Encryption over the Torus), dans le cadre d'une démonstration simple de chiffrement homomorphe. Plus précisément, il s'agit de :
 
 Chiffrer un message de 3 bits (valeur entière entre 0 et 7),
 
@@ -10,6 +11,7 @@ Déchiffrer à la fois le message initial et le résultat de l’évaluation,
 Documenter le processus de manière reproductible et modulaire.
 
 **Organisation du Challenge**
+
 Une structure de projet claire est essentielle pour faciliter le développement, la lisibilité du code, et les tests. Le projet sera organisé dans un dossier nommé RUST_tfhe/ ou C_tfhe/ selon le langage choisi.
 
 Résumé des fichiers à nommer proprement
@@ -38,7 +40,7 @@ Optionnel : affichage du message original pour vérification.
 1. Génération de la clé secrète, du masque, en utilisant le LWE/TLWE selon l'approche TFHE.
 2. Chiffrer un message de 3 bits selon l’approche TFHE.
 
-**Implémentation d’un chiffrement bit-à-bit du message.**
+**Implémentation d'évaluation d’un chiffrement bit-à-bit du message.**
 
 3. Soit la fonction affine : 𝑓(𝑥)=3𝑥+2. Évaluatrer bit-à-bit en exploitant les opérations logiques et arithmétiques supportées par TFHE
 
