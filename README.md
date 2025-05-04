@@ -1,66 +1,69 @@
-✅ Technical Test – TFHE Implementation (Rust or C)
-🎯 Objective
-Implement a minimal homomorphic encryption system using TFHE, capable of:
+**Objectif du Challenge**
+Ce problème a pour but d'implémenter, en Rust ou en langage C, les principaux composants du cryptosystème TFHE (Fast Fully Homomorphic Encryption over the Torus), dans le cadre d'une démonstration simple de chiffrement homomorphe. Plus précisément, il s'agit de :
 
-🔐 Encrypting two bits (a = 1, b = 0)
+Chiffrer un message de 3 bits (valeur entière entre 0 et 7),
 
-⚙️ Evaluating a logical operation (XOR or AND) homomorphically
+Évaluer de manière homomorphe des fonctions arithmétiques (addition, multiplication) sur ce message chiffré,
 
-🔓 Decrypting and displaying the result
+Déchiffrer à la fois le message initial et le résultat de l’évaluation,
 
-🛠️ Allowed Languages
-Rust with tfhe-rs (Zama)
+Documenter le processus de manière reproductible et modulaire.
 
-C/C++ with tfhe (original library)
+**Organisation du Challenge**
+Une structure de projet claire est essentielle pour faciliter le développement, la lisibilité du code, et les tests. Le projet sera organisé dans un dossier nommé RUST_tfhe/ ou C_tfhe/ selon le langage choisi.
 
-🗂️ Project Structure
-css
-Copier
-Modifier
-TFHE_Test/
-├── README.md
+**Arborescence proposée:**
+
+RUST_tfhe/
+│
 ├── src/
-│   ├── main.rs / main.c
-│   └── (additional source files if needed)
-├── Cargo.toml / Makefile
-└── output.txt         # Expected output sample
-📝 Instructions
-🔧 Required Steps
-✅ Initialize the TFHE key system (secret + cloud keys)
+│   ├── main.rs             # Point d’entrée du programme
+│   ├── encryption.rs       # Fonction de chiffrement TFHE
+│   ├── decryption.rs       # Fonction de déchiffrement TFHE
+│   ├── evaluation.rs       # Opérations homomorphes (addition, multiplication, fonctions affines)
+│
+├── tests/                  # Tests unitaires et vérification des résultats
+│
+├── Cargo.toml              # Fichier de configuration Rust (si Rust)
+└── README.md               # Documentation du projet
 
-✅ Encrypt two input bits (a = 1, b = 0)
+Si le Challenge est en C, on utilisera des fichiers .c et .h avec un Makefile à la place de Cargo.toml dans Rust.
 
-✅ Perform a homomorphic XOR or AND
+**=============================================================Début Du Challenge==============================================================**
 
-✅ Decrypt the result and print it
+**Fonctionnalités à implémenter, Encodage du message :**
 
-✅ Measure execution time for:
+Encodage sur 3 bits (valeurs 0 à 7),
 
-Encryption
+Optionnel : affichage du message original pour vérification.
 
-Evaluation
+**Chiffrement homomorphe avec TFHE :**
 
-Decryption
+1. Génération de la clé secrète, du masque, en utilisant le LWE/TLWE selon l'approche TFHE.
+2. Chiffrer un message de 3 bits selon l’approche TFHE.
 
-📌 Requirements
-The code must be well-documented
+**Implémentation d’un chiffrement bit-à-bit du message.**
 
-The project must compile and run without errors
+3. Soit la fonction affine : 𝑓(𝑥)=3𝑥+2. Évaluatrer bit-à-bit en exploitant les opérations logiques et arithmétiques supportées par TFHE
 
-README.md must clearly state:
+**Déchiffrement**:
 
-Setup instructions and dependencies
+4. Déchiffrement du message initial,
+5. Déchiffrement du résultat de l’évaluation,
+6. Comparaison des résultats avec les valeurs attendues en clair (pour vérification).
 
-Build and execution commands
+**Quelques Métriques**
 
-Example of expected output
+7. Mesurer le temps de chiffrement et de déchiffrement, ainsi que la capacité mémoire utilisée lors de l'exécution du chiffrement et du déchiffrement.
+8. Dire si ces algorithmes implémentées sont en temps constants ou pas. Sinon quel impact pourrait-on s'attendre quant à l'implémentation matérielle ?
+9. Expliquer rapdiement le bootstrapping et dire son lien avec notre fonction d'évaluation : f(x)=3x+2
 
-🔧 Suggested Libraries
-Rust: tfhe-rs
 
-C/C++: tfhe
+**====================================================================Fin Du Challenge====================================================================**
 
-📤 Submission
-Submit the project as a .zip archive or via a private GitHub repository
 
-Recommended deadline: within 72 hours of receiving the test
+**Contraintes et remarques**
+
+On pour travailler sur ℤ/16ℤ dans tout le challenge. La fonction 𝑓(𝑥)=3𝑥+2 est considérée comme fonction de référence pour la vérification du bon fonctionnement du chiffrement et de l’évaluation. Les fonctions homomorphes doivent être implémentées en respectant les limitations de TFHE (opérations logiques / arithmétiques bit-à-bit). La sécurité cryptographique n’est pas l’objectif principal ici : l’accent est mis sur la compréhension et la démonstration du fonctionnement de TFHE. 
+L’ensemble du **Challenge** doit être suffisamment documenté pour permettre à un tiers (correcteur, lecteur) de reproduire et comprendre les étapes de bout en bout.
+
