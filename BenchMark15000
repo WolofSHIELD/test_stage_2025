@@ -1,0 +1,64 @@
+╔══════════════════════════════════════════════════════╗
+║   ExactMatch — PSI via Catalano-Fiore (Forme 2)      ║
+║   ClickNCrypt Technical Series 2026 · v1.0           ║
+╚══════════════════════════════════════════════════════╝
+
+BD1 (base_A.csv) : 15000 NSS chargé(s)
+BD2 (base_B.csv) : 15000 NSS chargé(s)
+
+[Vérif. en clair]
+  NSS communs          : 1000
+  Positions communes   : 1002 (résultat attendu du protocole)
+  (Le protocole PSI ne révèle que ce cardinal — aucun identifiant n'est exposé)
+
+═══ Phase 0 : Génération des clés ═══
+  [Phase 0] BD1 : génération des clés (1024 bits)...
+  [Phase 0] BD1 : clés générées en 50.751s
+  [Phase 0] BD2 : génération des clés (1024 bits)...
+  [Phase 0] BD2 : clés générées en 135.721s
+
+═══ Phase 1 : Construction des tables de bits creuses ═══
+  [Phase 1] BD1 : construction de la table creuse (15000 NSS, TABLE_SIZE=2^30)...
+  [Phase 1] BD1 : 15000 position(s) active(s) — t[i]=1.
+  [Phase 1] BD2 : construction de la table creuse (15000 NSS, TABLE_SIZE=2^30)...
+  [Phase 1] BD2 : 15000 position(s) active(s) — t[i]=1.
+
+═══ Phase 2 : Échange croisé des masques chiffrés ═══
+  [Phase 2] BD1 : génération + chiffrement de 15000 masques sous pk_BD1...
+  [Phase 2] BD1 : 15000 masques prêts -> masks_enc transmis au Serveur et à l'autre BD.
+  [Phase 2] BD2 : génération + chiffrement de 15000 masques sous pk_BD2...
+  [Phase 2] BD2 : 15000 masques prêts -> masks_enc transmis au Serveur et à l'autre BD.
+  BD1 -> Enc_pk1(bi)   transmis au Serveur et à BD2
+  BD2 -> Enc_pk2(b'i)  transmis au Serveur et à BD1
+
+═══ Phase 3 : Calcul homomorphe — Serveur neutre ═══
+  [Phase 3] Serveur : calcul homomorphe CF...
+  [Phase 3] Serveur : 1002 position(s) commune(s) (t[i]=1 ^ t'[i]=1).
+  [Phase 3] Serveur : terminé en 5377.801s (1002 CF.Mul + agrégation).
+  C_BD1 (agrégat CF Forme Première) -> envoyé à BD1
+  C_BD2 (agrégat CF Forme Première) -> envoyé à BD2
+
+═══ Phase 4 : Déchiffrement CF et comptage ═══
+  [Phase 4] BD1 : déchiffrement CF Forme Première (chiffré agrégé unique)...
+  [Phase 4] BD1 : terminé en 597.454ms -> cardinal déchiffré = 1002
+  [Phase 4] BD2 : déchiffrement CF Forme Première (chiffré agrégé unique)...
+  [Phase 4] BD2 : terminé en 597.535ms -> cardinal déchiffré = 1002
+
+╔══════════════════════════════════════════════════════╗
+║                  RÉSULTAT FINAL                      ║
+╠══════════════════════════════════════════════════════╣
+║  r1 = r2 = 1002 patient(s) en commun
+║  Cohérence BD1 / BD2 vérifiée (r1 == r2)
+║  Résultat correct  (attendu : 1002)
+║
+║  Temps total protocole : 23430.427s
+╚══════════════════════════════════════════════════════╝
+
+Garanties de sécurité respectées :
+  Serveur : voit t et t' (positions actives) + Enc(bi), Enc(b'i)
+            calcule CF.Mul et agrège — ne déchiffre jamais
+  BD1     : reçoit C_BD1 agrégé — voit uniquement r = |BD1 ^ BD2|
+  BD2     : reçoit C_BD2 agrégé — voit uniquement r = |BD1 ^BD2|
+  CF.Mul  : masque croisé bi*b'i soustrait en homomorphe avant agrégation
+
+fall@MacBook-Air-de-FALL Paillier_rsc % 
